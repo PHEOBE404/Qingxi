@@ -28,7 +28,7 @@
 <!--          </div>-->
           <div id="circle_progress">
 
-          <el-progress type="circle" :percentage="100" status="success"  width="100"></el-progress>
+          <el-progress type="circle" :percentage="100" status="success"  width=100></el-progress>
             <p>
               本月已完成 <em>428</em> 件
             </p>
@@ -191,7 +191,11 @@
 
 
       </div>
-
+      <div
+        v-for="site in info"
+      >
+        {{ site.name }}
+      </div>
     </div>
 </template>
 
@@ -199,6 +203,13 @@
     export default {
       name: "UserManagement",
       methods: {
+        fetchUserInfo(){
+          this.$http.get("https://www.runoob.com/try/ajax/json_demo.json")
+            .then(function (response) {
+              console.log(response);
+              this.info=response.body;
+            })
+        },
         updata(){
           this.dialogFormVisible = false;
           this.formLabelAlign.name='王小明嘻嘻嘻嘻嘻';
@@ -218,6 +229,7 @@
         cellClass({row, column, rowIndex, columnIndex}) {
           // console.log(rowIndex);
           return {
+
             background: '#3A425D',
             color: '#D9DADE',
             // border: 1px solid black;
@@ -258,9 +270,17 @@
         //   })
         // }
       },
-
+      // mounted () {
+      //   this.$axios
+      //     .get('https://www.runoob.com/try/ajax/json_demo.json')
+      //     .then(response => (this.info = response))
+      //     .catch(function (error) { // 请求失败处理
+      //       console.log(error);
+      //     });
+      // },
       data() {
         return {
+          info: null,
           visible2: false,
           labelPosition: 'top',
           formLabelAlign: {
@@ -309,121 +329,7 @@
               user_intro: '越剧爱好者',
               user_image: ' /img/user/ddsfhgjs.png'
             },
-            {
-              user_id: '134245235',
-              user_name: '小龙妹',
-              user_gender: '女',
-              user_email: 'ronil07@tom.com',
-              user_intro: '我是一个生活在麻辣汤里面的豆腐皮',
-              user_image: ' /img/user/h56ugfsrdg.png'
-            },
-            {
-              user_id: '876978658',
-              user_name: 'Lucky One',
-              user_gender: '女',
-              user_email: 'l743845@163.com',
-              user_intro: '为何谎话是大人共同语言，小孩撒谎大人又有怨言',
-              user_image: '/ img/user/sdhtr6yu556r.png'
-            }, {
-              user_id: '356464576',
-              user_name: '回忆の痛',
-              user_gender: '男',
-              user_email: 'holtwqp@hotmail.com',
-              user_intro: '多年之后 再看见你 你怎么还安然无恙的活着！！',
-              user_image: ' /img/user/78907jmgh.png'
-            }, {
-              user_id: '356342545',
-              user_name: '不暖',
-              user_gender: '女',
-              user_email: 'lecgc15@126.com',
-              user_intro: '时间是检验真理旳标准。',
-              user_image: '/img/user/243asdfasdf.png'
-            }, {
-              user_id: '789678667',
-              user_name: '梦在深巷',
-              user_gender: '男',
-              user_email: 'vkfpfok@56.com',
-              user_intro: '老师说忘记也是们学科，那么老师抱歉，我不及格。',
-              user_image: ' /img/user/kuyio89678.png'
-            }, {
-              user_id: '223454645',
-              user_name: '武林萌主',
-              user_gender: '女',
-              user_email: 'v375768@yeah.net',
-              user_intro: '烟水两茫茫，蒹葭复苍苍，你就是那一位伫立于水之湄的俏佳人',
-              user_image: ' /img/user/ewre2345r3s.png'
-            }, {
-              user_id: '324236475',
-              user_name: '瑾澜',
-              user_gender: '男',
-              user_email: 'kvdbpwu@126.com',
-              user_intro: '你说只身一人，对镜成双； 后来路上三人，岁月情长',
-              user_image: '/img/user/werthtgfh.png'
-            },
- {
-              user_id: '757544532',
-              user_name: '指天求虐',
-              user_gender: '男',
-              user_email: 'rmmsi23@sina.com',
-              user_intro: '在下，柸中公仪斐，敢问姑娘芳名？',
-              user_image: ' /img/user/srteyhjt75645.png'
-            },{
-              user_id: '465878768',
-              user_name: '凉心人',
-              user_gender: '女',
-              user_email: 'ugajdii@eyou.com',
-              user_intro: '依稀是旧时节，城门上下弦月，白色身影，夜色如水清冽',
-              user_image: '/ img/user/asrw2342.png'
-            },{
-              user_id: '132435235',
-              user_name: '倒霉熊',
-              user_gender: '女',
-              user_email: 'bnatcfk@qq.com',
-              user_intro: ' “扫描”到你，我的爱情“程序”就“启动”了，别人都说我们很“兼容”',
-              user_image: '/ img/user/sdzsmu765.png'
-            },{
-              user_id: '457867946',
-              user_name: '半面妆。',
-              user_gender: '女',
-              user_email: 'bpwqdl2@163.net',
-              user_intro: '心路，如意为桥',
-              user_image: ' /img/user/456thsr3q.png'
-            },{
-              user_id: '245634576',
-              user_name: '橘殃',
-              user_gender: '男',
-              user_email: 'tmems17@yeah.net',
-              user_intro: '琴与弦，是注定的永远;花与叶，是相守的绵延',
-              user_image: ' /img/user/asdsfw336.png'
-            },{
-              user_id: '786575856',
-              user_name: '蕞深魡肳',
-              user_gender: '女',
-              user_email: 'gucooj1@sina.com',
-              user_intro: '缘聚缘散缘如水，背负万丈尘寰',
-              user_image: '/ img/user/d34523fdfgjs.png'
-            },{
-              user_id: '678978967',
-              user_name: '何必作戏给我看',
-              user_gender: '男',
-              user_email: 'rvekbr3@126.com',
-              user_intro: '一个人也要踏出千军万马的气势。',
-              user_image: ' /img/user/fsdgb65633gjs.png'
-            },{
-              user_id: '467457888',
-              user_name: '直女!',
-              user_gender: '女',
-              user_email: 'wagbnh6@hotmail.com',
-              user_intro: '独向浮生，不遇漓人',
-              user_image: ' /img/user/d45365633gjs.png'
-            },{
-              user_id: '436534536',
-              user_name: '吻笑眉',
-              user_gender: '女',
-              user_email: 'i433428@163.net',
-              user_intro: '开茶靡花事了，叶落彼岸叶方休。',
-              user_image: ' /img/user/ddsfhgjs.png'
-            },
+
 
 
 

@@ -14,6 +14,8 @@ import 'vant/lib/index.css';
 import '@vant/touch-emulator';
 // import myVideo from 'vue-video';
 import videoPlayer from 'vue-video-player';
+import axios from 'axios';
+Vue.prototype.$axios = axios;
 Vue.use(videoPlayer);
 Vue.use(Vant);
 Vue.use(Mint);

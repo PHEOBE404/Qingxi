@@ -6,8 +6,9 @@
 <!--    <router-link :to="{ name: 'store' }"></router-link>-->
 <!--    <nav-bar></nav-bar>-->
 <!--<store-detail></store-detail>-->
-    <router-view></router-view>
+<!--    <router-view></router-view>-->
 <!--    <shopping></shopping>-->
+    <ajax-test></ajax-test>
   </div>
 
 </template>
@@ -20,6 +21,7 @@ import NavBar from  "./components/NavBar"
 import Store from  "./components/Store"
 import StoreDetail from  "./components/StoreDetail"
 import Shopping from  "./components/Shopping"
+import AjaxTest from  "./components/AjaxTest"
 
 export default {
   name: 'App',
@@ -31,8 +33,10 @@ export default {
     Store,
     StoreDetail,
     Shopping,
+    AjaxTest,
 
-  }
+  },
+
 }
 </script>
 
