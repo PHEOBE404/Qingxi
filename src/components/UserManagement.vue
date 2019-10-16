@@ -59,44 +59,52 @@
       </div>
 
       <div id="user_all_info">
-        <div id="user_all_info_title" class="user_online_title">用户信息</div>
+        <div id="user_all_info_title" class="user_online_title"  >用户信息</div>
         <el-table
-          :data="tableData"
+          v-for="site in info"
           style="width: 100%"
           :cell-style="cellClass"
           :header-cell-style="headerCellClass"
           :row-style="rowClass"
+
         >
           <el-table-column
 
             prop="user_id"
             label="用户ID"
             width="100">
+            123
+            {{ site.user_id }}
           </el-table-column>
           <el-table-column
             prop="user_name"
             label="用户名"
             width="120">
+            {{ site.user_name }}
           </el-table-column>
           <el-table-column
             prop="user_gender"
             label="性别"
             width="60">
+            {{ site.user_name }}
           </el-table-column>
           <el-table-column
             prop="user_email"
             label="邮箱"
             width="180">
+            {{ site.user_name }}
           </el-table-column>
           <el-table-column
             prop="user_intro"
             label="个人简介"
             width="203">
+            {{ site.user_name }}
           </el-table-column>
           <el-table-column
             prop="user_image"
             label="头像URL"
             width="228">
+            {{ site.user_name }}
           </el-table-column>
           <el-table-column
             label="操作"
@@ -191,17 +199,23 @@
 
 
       </div>
-      <div
-        v-for="site in info"
-      >
-        {{ site.name }}
-      </div>
+
     </div>
 </template>
 
 <script>
     export default {
       name: "UserManagement",
+      mounted () {
+        this.$axios.get("http://localhost:3000/userInfo")
+          .then( (response)=> {
+            console.log(response.data);
+            this.info = response.data;
+            // console.log("infoooooooooooooo");
+            // console.log(this.info);//可以传参
+
+          })
+      },
       methods: {
         fetchUserInfo(){
           this.$http.get("https://www.runoob.com/try/ajax/json_demo.json")
@@ -270,16 +284,9 @@
         //   })
         // }
       },
-      // mounted () {
-      //   this.$axios
-      //     .get('https://www.runoob.com/try/ajax/json_demo.json')
-      //     .then(response => (this.info = response))
-      //     .catch(function (error) { // 请求失败处理
-      //       console.log(error);
-      //     });
-      // },
       data() {
         return {
+          // info_base
           info: null,
           visible2: false,
           labelPosition: 'top',
