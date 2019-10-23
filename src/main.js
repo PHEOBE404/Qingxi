@@ -16,6 +16,7 @@ import '@vant/touch-emulator';
 import videoPlayer from 'vue-video-player';
 import axios from 'axios';
 Vue.prototype.$axios = axios;
+axios.defaults.headers.post['Content-Type']='application/json;charset=UTF-8';
 Vue.use(videoPlayer);
 Vue.use(Vant);
 Vue.use(Mint);

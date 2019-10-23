@@ -6,9 +6,9 @@
 <!--    <router-link :to="{ name: 'store' }"></router-link>-->
 <!--    <nav-bar></nav-bar>-->
 <!--<store-detail></store-detail>-->
-    <router-view></router-view>
+<!--    <router-view></router-view>-->
 <!--    <shopping></shopping>-->
-<!--    <ajax-test></ajax-test>-->
+    <ajax-test></ajax-test>
 <!--    <user-management></user-management>-->
   </div>
 
